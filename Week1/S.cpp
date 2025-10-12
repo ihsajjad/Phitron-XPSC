@@ -14,7 +14,11 @@ int main()
 
     for (long long int i = 1; i < n; i++)
         if (arr[i] < arr[i - 1])
-            move += arr[i - 1] - arr[i];
+        {
+            long long int diff = arr[i - 1] - arr[i];
+            move += diff;
+            arr[i] += diff;
+        }
 
     cout << move << endl;
 
