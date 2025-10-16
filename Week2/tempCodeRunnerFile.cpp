@@ -9,42 +9,44 @@ int main()
     int t;
     cin >> t;
 
-    map<string, bool> mp;
-
     while (t--)
     {
-        string name;
-        cin >> name;
+        int n;
+        cin >> n;
+        string a, b;
+        cin >> a >> b;
 
-        // If user name doesn't exist
-        if (mp.find(name) == mp.end())
+        for (int i = 0; i < n; i++)
         {
-            mp[name] = true;
-            cout << "OK" << '\n';
-        }
-        // If user name exist!
-        else
-        {
-            int val = 1;
 
-            map<string, bool>::const_iterator it;
-            while (it != mp.end())
+            if (a[i] == '1' && i > 0)
             {
-                name += to_string(val);
-                it = mp.find(name);
-                if (it == mp.end())
+                if (b[i - 1] == '0')
+                    swap(a[i], b[i - 1]);
+                else if (b[i - 1] == '1' && i - 2 >= 0)
                 {
-                    mp[name] = true;
-                    cout << name << '\n';
-                    break;
-                }
-                else
-                {
-                    name.pop_back();
-                    val++;
+                    swap(a[i - 2], b[i - 1]);
+                    i = i - 3;
                 }
             }
+            else if (i + 1 < n && b[i + 1] == '0')
+            {
+                swap(a[i], b[i + 1]);
+            }
         }
+
+        bool flag = true;
+        for (char c : a)
+            if (c == '1')
+            {
+                flag = false;
+                break;
+            }
+
+        if (flag)
+            cout << "YES" << '\n';
+        else
+            cout << "NO" << '\n';
     }
 
     return 0;

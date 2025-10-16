@@ -8,19 +8,22 @@ int main()
 
     int n;
     cin >> n;
-    vector<string> v(n);
-
-    for (int i = 0; i < n; i++)
-        cin >> v[i];
 
     map<string, bool> mp;
 
-    for (int i = n - 1; i >= 0; i--)
-        if (!mp[v[i]])
+    while (n--)
+    {
+        string s;
+        cin >> s;
+
+        if (mp[s])
+            cout << "YES" << '\n';
+        else
         {
-            cout << v[i] << '\n';
-            mp[v[i]] = true;
+            mp[s] = true;
+            cout << "NO" << '\n';
         }
+    }
 
     return 0;
 }

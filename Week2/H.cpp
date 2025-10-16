@@ -18,30 +18,57 @@ int main()
         long long int mx = INT_MIN;
         long long int mid = n / 2;
 
-        // if (n % 2)
-        //     mid--;
+        // for (int i = 0, j = n - 1, cnt = 0; cnt < n; cnt++)
+        // {
+        //     if (i < mid)
+        //     {
+        //         if (s[i] == 'L')
+        //             s[i] = 'R';
 
-        for (long long int i = 0; i < n; i++)
+        //         long long int sum = 0;
+        //         for (long long int j = 0; j < n; j++)
+        //             if (s[j] == 'R')
+        //                 sum += n - j - 1;
+        //             else
+        //                 sum += j;
+
+        //         mx = max(mx, sum);
+        //         i++;
+        //     }
+        //     else
+        //     {
+        //         if (s[j] == 'R')
+        //             s[j] = 'L';
+
+        //         long long int sum = 0;
+        //         for (long long int j = 0; j < n; j++)
+        //             if (s[j] == 'R')
+        //                 sum += n - j - 1;
+        //             else
+        //                 sum += j;
+
+        //         mx = max(mx, sum);
+
+        //         j--;
+        //     }
+
+        //     cout << mx << " ";
+        // }
+
+        for (long long int i = 0, j = n - 1; i < n; i++, j--)
         {
-            if (i < mid && s[i] == 'L')
-            {
-                s[i] = 'R';
-            }
-            else if (i >= mid && s[i] == 'R')
-            {
-                s[i] = 'L';
-            }
+            // if (i < mid && s[i] == 'L')
+            //     s[i] = 'R';
+
+            // if (j >= mid && s[j] == 'R')
+            //     s[j] = 'L';
 
             long long int sum = 0;
             for (long long int j = 0; j < n; j++)
-            {
                 if (s[j] == 'R')
-                {
-                    sum += n - (j + 1);
-                }
-                else
                     sum += j;
-            }
+                else
+                    sum += n - j - 1;
 
             mx = max(mx, sum);
             cout << mx << " ";
