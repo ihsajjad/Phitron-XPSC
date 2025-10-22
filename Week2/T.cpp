@@ -21,6 +21,9 @@ int main()
             a.push_back(val);
     }
 
+    if (n % 2)
+        reverse(a.begin(), a.end());
+
     for (int item : a)
         cout << item << " ";
 
