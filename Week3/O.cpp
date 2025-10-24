@@ -8,39 +8,28 @@ int main()
 
     int cubes;
     cin >> cubes;
-    priority_queue<set<int>> pq;
+    multiset<int> st;
     for (int i = 0; i < cubes; i++)
     {
         int cube;
         cin >> cube;
 
-        if (pq.empty())
+        if (st.empty())
+            st.insert(cube);
+        else
         {
-            set<int> st = {cube};
-            pq.push(st);
-            continue;
-        }
-
-        while (!pq.empty())
-        {
-            set<int> st = pq.top();
-            pq.pop();
-
-            if (*st.begin() > cube)
-            {
+            auto it = st.upper_bound(cube);
+            if (it == st.end())
                 st.insert(cube);
-                pq.push(st);
-                break;
-            }
             else
             {
-                pq.push({cube});
-                break;
+                st.insert(cube);
+                st.erase(it);
             }
         }
     }
 
-    cout << pq.size() << '\n';
+    cout << st.size() << '\n';
 
     return 0;
 }
