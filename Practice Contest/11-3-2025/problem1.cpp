@@ -6,10 +6,9 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int book, page;
-    cin >> book >> page;
+    int n;
+    cin >> n;
 
-    int lines = book * page * 2 * 50;
-    cout << lines << '\n';
+    cout << (n == 7 ? "THALA" : "SADGE") << '\n';
     return 0;
 }

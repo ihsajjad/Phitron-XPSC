@@ -6,10 +6,12 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int book, page;
-    cin >> book >> page;
+    int x, y;
+    cin >> x >> y;
 
-    int lines = book * page * 2 * 50;
-    cout << lines << '\n';
+    if (x * y >= 100)
+        cout << "YES" << '\n';
+    else
+        cout << "NO" << '\n';
     return 0;
 }
