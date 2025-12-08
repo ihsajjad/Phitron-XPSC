@@ -17,19 +17,18 @@ int main()
     }
     sort(v.begin(), v.end());
 
-    long long int l = 0, r = n - 1;
     bool flag = false;
     vector<int> ans;
 
-    long long int sum;
-    while (l < n && !flag)
+    long long int k = 0;
+    while (k < n && !flag)
     {
-        long long int k = l + 1;
-        while (l < k && k < r)
+        long long int sum, diff = x - v[k].first;
+        long long int l = k + 1, r = n - 1;
+        while (l < r && k < r)
         {
-            sum = v[l].first + v[k].first + v[r].first;
-            cout << l << " " << k << " " << r << endl;
-            if (sum == x)
+            sum = v[l].first + v[r].first;
+            if (sum == diff)
             {
                 ans.push_back(v[l].second);
                 ans.push_back(v[k].second);
@@ -37,13 +36,12 @@ int main()
                 flag = true;
                 break;
             }
-            k++;
+            else if (sum > diff)
+                r--;
+            else
+                l++;
         }
-
-        if (sum < x)
-            l++;
-        else if (sum > x)
-            r--;
+        k++;
     }
 
     if (!flag)

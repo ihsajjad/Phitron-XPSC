@@ -12,24 +12,16 @@ int main()
     {
         int n;
         cin >> n;
-        deque<int> dq;
-        long long int sum = 0;
+        vector<int> arr(n);
         for (int i = 0; i < n; i++)
-        {
-            int val;
-            cin >> val;
-            if (sum == val)
-            {
-                dq.push_front(val);
-            }
-            else
-                dq.push_back(val);
+            cin >> arr[i];
 
-            sum += val;
-        }
+        sort(arr.begin(), arr.end());
 
-        for (int val : dq)
-            cout << val << " ";
+        cout << arr[n - 1] << " ";
+        for (int i = 0; i < n - 1; i++)
+            cout << arr[i] << " ";
+
         cout << '\n';
     }
 
