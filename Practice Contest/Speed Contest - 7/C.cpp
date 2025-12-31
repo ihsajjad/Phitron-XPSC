@@ -12,15 +12,15 @@ int main()
     {
         int n;
         cin >> n;
-        vector<int> arr(n);
+        map<int, int> mp;
         for (int i = 0; i < n; i++)
-            cin >> arr[i];
-
-        int l = 0, r = 0, cnt = 0;
-        while (r < n)
         {
+            int val;
+            cin >> val;
+            mp[val]++;
         }
-        cout << endl;
+
+        cout << (mp.size() >= 2 ? 2 : -1) << endl;
     }
 
     return 0;

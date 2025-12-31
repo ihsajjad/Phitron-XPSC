@@ -10,18 +10,30 @@ int main()
     cin >> t;
     while (t--)
     {
-        int d, x, b;
-        cin >> d >> x >> b;
+        float d, x, y;
+        cin >> d >> x >> y;
+        int disc = round((x / 100) * d);
 
-        int ans = 0;
-        while (x > b && b)
+        if (x <= y)
         {
-            b--;
-            x = (x * (100 - d)) / 100;
-            ans++;
+            cout << 0 << endl;
+            continue;
+        }
+        int tmp = x;
+        int ans = 0;
+        bool flag = false;
+        for (int i = 1; i <= y; i++)
+        {
+            if (x <= y)
+            {
+                ans = i - 1;
+                flag = true;
+                break;
+            }
+            x = i + tmp * ((100 - (i * d)) / 100);
         }
 
-        cout << (x <= b ? ans : -1) << endl;
+        cout << (flag ? ans : -1) << endl;
     }
 
     return 0;

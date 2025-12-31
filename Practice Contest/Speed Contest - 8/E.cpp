@@ -10,17 +10,17 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n;
+        int n, odd = 0;
         cin >> n;
-        vector<int> arr(n);
         for (int i = 0; i < n; i++)
-            cin >> arr[i];
-
-        int l = 0, r = 0, cnt = 0;
-        while (r < n)
         {
+            int val;
+            cin >> val;
+            if (val % 2)
+                odd++;
         }
-        cout << endl;
+
+        cout << (odd == 1 ? "Yes" : "No") << endl;
     }
 
     return 0;

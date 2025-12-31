@@ -10,17 +10,17 @@ int main()
     cin >> t;
     while (t--)
     {
-        int n;
-        cin >> n;
-        vector<int> arr(n);
+        int n, m;
+        cin >> n >> m;
+        map<int, int> mp;
         for (int i = 0; i < n; i++)
-            cin >> arr[i];
-
-        int l = 0, r = 0, cnt = 0;
-        while (r < n)
         {
+            int val;
+            cin >> val;
+            mp[val]++;
         }
-        cout << endl;
+
+        cout << (m - mp.size()) << endl;
     }
 
     return 0;
