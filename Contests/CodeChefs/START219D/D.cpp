@@ -6,6 +6,27 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int n;
+        cin >> n;
+        int t_0 = 0, t_1 = 0, ans = 0;
+        for (int i = 0; i < n; i++)
+        {
+            char c;
+            cin >> c;
+            if (c == '0')
+                t_0++;
+            else
+                t_1++;
+                
+            if (t_1 >= t_0)
+                ans++;
+        }
+        cout << ans << endl;
+    }
+
     return 0;
 }

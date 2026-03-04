@@ -12,16 +12,19 @@ int main()
     {
         int n;
         cin >> n;
-        int ans = 0, cnt = 0;
+        vector<int> arr(n * 2);
+        long long ans = 0, cnt = 0;
+
         for (int i = 0; i < 2 * n; i++)
         {
-            int val;
-            cin >> val;
-            if (val <= n)
-                ans += cnt, cnt = 0;
-            else
+            cin >> arr[i];
+
+            if (arr[i] > n)
                 cnt++;
+            else
+                ans += cnt;
         }
+
         cout << ans << endl;
     }
 

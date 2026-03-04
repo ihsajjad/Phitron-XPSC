@@ -24,20 +24,19 @@ int main()
                 else
                 {
                     ans.push_back(cnt);
-                    cnt--;
-                    if (cnt <= 0)
-                        cnt = 1;
+                    while (cnt > 1)
+                    {
+                        cnt--;
+                        ans.push_back(cnt);
+                    }
                 }
             }
         }
-
         ans.push_back(cnt);
-        int last_len = ans.back();
-        int run = n - ans.size();
-        for (int i = 0; i < run; i++)
+        while (cnt > 1)
         {
-            last_len--;
-            ans.push_back(last_len ? last_len : 1);
+            cnt--;
+            ans.push_back(cnt);
         }
 
         for (int val : ans)

@@ -19,21 +19,19 @@ int main()
             cout << 0 << endl;
             continue;
         }
-        int tmp = x;
-        int ans = 0;
-        bool flag = false;
+
+        int ans = -1;
         for (int i = 1; i <= y; i++)
         {
-            if (x <= y)
+            int discount = i * x * d / 100;
+            if (x - discount <= y - i)
             {
-                ans = i - 1;
-                flag = true;
+                ans = i;
                 break;
             }
-            x = i + tmp * ((100 - (i * d)) / 100);
         }
 
-        cout << (flag ? ans : -1) << endl;
+        cout << ans << endl;
     }
 
     return 0;
